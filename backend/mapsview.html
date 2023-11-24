@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geoapify Static Map with Intensity Markers</title>
+    <style>
+        .map-container {
+            position: relative;
+        }
+
+        .intensity-marker {
+            position: absolute;
+            width: 30px; /* Adjust the width as needed */
+            height: 30px; /* Adjust the height as needed */
+            background-image: url('https://api.geoapify.com/v1/icon/?type=circle&color=red&size=small&icon=group&iconType=material&iconSize=small&strokeColor=%23f20e0e&shadowColor=%23fc1717&noShadow&noWhiteCircle&scaleFactor=2&apiKey=76c69554e97a427ba117043821eecda9');
+            background-size: contain;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="map-container">
+        <!-- The JavaScript code will dynamically position markers here -->
+        <img id="static-map" src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=800&height=600&center=lonlat:76.778633,30.707448&zoom=10.7621&scaleFactor=2&apiKey=76c69554e97a427ba117043821eecda9
+        " alt="Static Map">
+    </div>
+
+    <script>
+        function addMarkerWithCoordinates(latitude, longitude) {
+            const mapImage = document.getElementById("static-map");
+            const container = document.querySelector(".map-container");
+
+            // Calculate pixel coordinates based on map size, center, and zoom level
+            const pixelX = (longitude + 180) * (mapImage.width / 360);
+            const pixelY = ((90 - latitude) / 180) * mapImage.height;
+
+            // Create a new marker element
+            const marker = document.createElement("div");
+            marker.className = "intensity-marker";
+            marker.style.top = pixelY + "px";
+            marker.style.left = pixelX + "px";
+
+            // Append the marker to the container
+            container.appendChild(marker);
+        }
+
+        // Example: Add a marker at coordinates (30.7333, 76.7794)
+        addMarkerWithCoordinates(30.7345, 76.7894);
+
+        addMarkerWithCoordinates(30.7355, 76.7955);
+
+    </script>
+</body>
+</html>
