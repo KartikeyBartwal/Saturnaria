@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1071206484430",
+    "project_id": "neki-809d4",
+    "storage_bucket": "neki-809d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071206484430:android:5c9a9acfc0b9b7ada1039f",
+        "android_client_info": {
+          "package_name": "com.chindi.chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACsBFAK_T7ktwJZBl2nspCm4DymBtfDxo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
